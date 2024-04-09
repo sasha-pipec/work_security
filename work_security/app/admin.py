@@ -7,7 +7,31 @@ from app.models import *
 admin.site.register(User)
 admin.site.register(Gallery)
 admin.site.register(Instruction)
-admin.site.register(Test)
-admin.site.register(Question)
-admin.site.register(Answer)
 admin.site.register(TestToUser)
+
+
+class AnswerInline(admin.TabularInline):
+    model = Answer
+
+
+class QuestionAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    inlines = [
+        AnswerInline,
+    ]
+
+
+class QuestionInline(admin.TabularInline):
+    model = Question
+    show_change_link = True
+
+
+class TestAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    inlines = [
+        QuestionInline,
+    ]
+
+
+admin.site.register(Test, TestAdmin)
+admin.site.register(Question, QuestionAdmin)

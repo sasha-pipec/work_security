@@ -5,7 +5,10 @@ from django.db import models
 # Create your models here.
 
 class User(AbstractUser):
-    pass
+
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользовватели'
 
 
 class Gallery(models.Model):
@@ -16,8 +19,8 @@ class Gallery(models.Model):
 
     class Meta:
         db_table = 'gallery'
-        verbose_name = 'Gallery'
-        verbose_name_plural = 'Gallery'
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фото'
 
 
 class Instruction(models.Model):
@@ -33,8 +36,8 @@ class Instruction(models.Model):
 
     class Meta:
         db_table = 'instruction'
-        verbose_name = 'Instruction'
-        verbose_name_plural = 'Instructions'
+        verbose_name = 'Инструкция'
+        verbose_name_plural = 'Интсрукции'
 
 
 class Test(models.Model):
@@ -46,8 +49,8 @@ class Test(models.Model):
 
     class Meta:
         db_table = 'test'
-        verbose_name = 'Test'
-        verbose_name_plural = 'Tests'
+        verbose_name = 'Тест'
+        verbose_name_plural = 'Тесты'
 
 
 class Question(models.Model):
@@ -59,8 +62,8 @@ class Question(models.Model):
 
     class Meta:
         db_table = 'question'
-        verbose_name = 'Question'
-        verbose_name_plural = 'Questions'
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
 
 
 class Answer(models.Model):
@@ -73,8 +76,8 @@ class Answer(models.Model):
 
     class Meta:
         db_table = 'answer'
-        verbose_name = 'Answer'
-        verbose_name_plural = 'Answers'
+        verbose_name = 'Ответ'
+        verbose_name_plural = 'Ответы'
 
 
 class TestToUser(models.Model):
@@ -87,5 +90,5 @@ class TestToUser(models.Model):
 
     class Meta:
         db_table = 'testtouser'
-        verbose_name = 'TestToUser'
-        verbose_name_plural = 'TestToUsers'
+        verbose_name = 'Оценка'
+        verbose_name_plural = 'Оценки'
